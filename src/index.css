@@ -9,12 +9,12 @@ html {
 }
 
 body {
-  margin: 0;
-  min-height: 100%;
+  background-image: url('https://wallpaperplay.com/walls/full/0/a/f/34590.jpg');
+  background-size: inherit;
 }
 
 header {
-  background: #fff;
+  background: whitesmoke;
   border-bottom: 0.1px solid #000;
   height: 60px;
   padding: 10px;
@@ -27,7 +27,7 @@ header h1 {
 }
 
 .container {
-  background: #b292be;
+  background: #86a86a;
   width: 298px;
   padding: 10px;
   margin-top: 20px;

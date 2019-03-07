@@ -8,11 +8,13 @@ class App extends Component {
       amiiboLink: '',
       amiiboText: 'Enter Character',
       searchText: '',
-      apiLink: ''
+      apiLink: '',
+      character: {},
+      image: ''
     }
 
     this.handleChange = this.handleChange.bind(this)
-    this.characterRequest = this.handleChange.bind(this)
+    this.characterRequest = this.characterRequest.bind(this)
   }
 
   handleChange(e) {
@@ -20,10 +22,21 @@ class App extends Component {
   }
 
   characterRequest() {
-    // make an ajax call
-    // interpolate link state and search word
-    // set state if successful
+    fetch(
+      'http://www.amiiboapi.com/api/amiibo/?character' + this.state.searchText
+    )
+      .then(res => res.json())
+      .then(result => {
+        console.log(result.amiibo)
+        this.setState({
+          character: result.amiibo[0],
+          image: result.amiibo[0].image
+        })
+      })
   }
+  // make an ajax call
+  // interpolate link state and search word
+  // set state if successful
 
   render() {
     return (
@@ -43,7 +56,7 @@ class App extends Component {
           <button onClick={this.characterRequest} type="button" name="button">
             Look Up
           </button>
-          <img src="" alt="" />
+          <img src={this.state.image} alt="" />
         </section>
       </>
     )
