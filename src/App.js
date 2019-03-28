@@ -23,7 +23,7 @@ class App extends Component {
 
   characterRequest() {
     fetch(
-      'http://www.amiiboapi.com/api/amiibo/?character' + this.state.searchText
+      'https://www.amiiboapi.com/api/amiibo/?character' + this.state.searchText
     )
       .then(res => res.json())
       .then(result => {
